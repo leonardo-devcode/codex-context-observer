@@ -1,0 +1,20 @@
+{
+  "name": "codex-context-observer",
+  "interface": {
+    "displayName": "Context Observer"
+  },
+  "plugins": [
+    {
+      "name": "context-observer",
+      "source": {
+        "source": "local",
+        "path": "./plugins/context-observer"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

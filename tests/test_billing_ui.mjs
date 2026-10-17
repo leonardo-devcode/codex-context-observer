@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {costView,costSummary} from '../plugins/context-observer/cost-ui.js';
+const data=(api,subscription,unknown,login)=>({billingCounts:{api,subscription,unknown},currentAuth:{mode:login}});
+assert.equal(costView(data(0,4,0,'api')).key,null,'Current API login must not reprice ChatGPT history');
+assert.equal(costView(data(0,0,4,'api')).key,'inferred');
+assert.equal(costView(data(2,4,3,'api')).key,'auto','Historical API evidence takes priority');
+assert.equal(costView(data(2,0,0,'subscription')).key,'auto');
+assert.equal(costView(data(0,0,4,'subscription')).key,null);
+assert.equal(costView(data(0,0,4,'unknown')).key,null);
+assert.equal(costView({...data(0,0,0,'api'),billingCounts:{conflict:2}}).key,null);
+assert.deepEqual(costSummary({calls:4,rows:[{estimates:{auto:{usd:0.2,pricedCalls:2}}}]},'auto',2),{usd:.2,priced:2,partial:false});
+assert.equal(costSummary({calls:1,rows:[{estimates:{auto:{usd:null,pricedCalls:0}}}]},'auto',1).usd,null);
+console.log('Automatic billing UI: 9 scenarios passed');

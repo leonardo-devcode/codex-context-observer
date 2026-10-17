@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "context_observer": {
+      "command": "python3",
+      "args": [
+        "${PLUGIN_ROOT}/launch.py"
+      ],
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      },
+      "startup_timeout_sec": 180,
+      "tool_timeout_sec": 30
+    }
+  }
+}

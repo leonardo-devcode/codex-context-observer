@@ -1,0 +1,1832 @@
+{
+  "currency": "USD",
+  "verifiedAt": "2026-10-17",
+  "source": "https://developers.openai.com/api/docs/pricing",
+  "longContextAbove": 272000,
+  "rateOrder": [
+    "input",
+    "cached",
+    "cacheWrite",
+    "output"
+  ],
+  "models": {
+    "gpt-6-astra": {
+      "standard": {
+        "short": [
+          10,
+          1,
+          12.5,
+          50
+        ],
+        "long": [
+          20,
+          2,
+          25,
+          75
+        ]
+      },
+      "batch": {
+        "short": [
+          5,
+          0.5,
+          6.25,
+          25
+        ],
+        "long": [
+          10,
+          1,
+          12.5,
+          37.5
+        ]
+      },
+      "flex": {
+        "short": [
+          5,
+          0.5,
+          6.25,
+          25
+        ],
+        "long": [
+          10,
+          1,
+          12.5,
+          37.5
+        ]
+      },
+      "fast": {
+        "short": [
+          20,
+          2,
+          25,
+          100
+        ],
+        "long": [
+          40,
+          4,
+          50,
+          150
+        ]
+      },
+      "ultrafast": {
+        "short": [
+          60,
+          6,
+          75,
+          300
+        ],
+        "long": [
+          120,
+          12,
+          150,
+          450
+        ]
+      }
+    },
+    "gpt-6.1-sol": {
+      "standard": {
+        "short": [
+          2,
+          0.1,
+          2.5,
+          10
+        ],
+        "long": [
+          4,
+          0.2,
+          5,
+          15
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          0.05,
+          1.25,
+          5
+        ],
+        "long": [
+          2,
+          0.1,
+          2.5,
+          7.5
+        ]
+      },
+      "flex": {
+        "short": [
+          1,
+          0.05,
+          1.25,
+          5
+        ],
+        "long": [
+          2,
+          0.1,
+          2.5,
+          7.5
+        ]
+      },
+      "fast": {
+        "short": [
+          4,
+          0.2,
+          5,
+          20
+        ],
+        "long": [
+          8,
+          0.4,
+          10,
+          30
+        ]
+      },
+      "ultrafast": {
+        "short": [
+          12,
+          0.6,
+          15,
+          60
+        ],
+        "long": [
+          24,
+          1.2,
+          30,
+          90
+        ]
+      }
+    },
+    "gpt-6-luna": {
+      "standard": {
+        "short": [
+          0.1,
+          0.01,
+          0.125,
+          0.5
+        ],
+        "long": [
+          0.2,
+          0.02,
+          0.25,
+          0.75
+        ]
+      },
+      "batch": {
+        "short": [
+          0.05,
+          0.005,
+          0.0625,
+          0.25
+        ],
+        "long": [
+          0.1,
+          0.01,
+          0.125,
+          0.375
+        ]
+      },
+      "flex": {
+        "short": [
+          0.05,
+          0.005,
+          0.0625,
+          0.25
+        ],
+        "long": [
+          0.1,
+          0.01,
+          0.125,
+          0.375
+        ]
+      },
+      "fast": {
+        "short": [
+          0.2,
+          0.02,
+          0.25,
+          1
+        ],
+        "long": [
+          0.4,
+          0.04,
+          0.5,
+          1.5
+        ]
+      }
+    },
+    "gpt-6-sol": {
+      "standard": {
+        "short": [
+          2,
+          0.2,
+          2.5,
+          10
+        ],
+        "long": [
+          4,
+          0.4,
+          5,
+          15
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          0.1,
+          1.25,
+          5
+        ],
+        "long": [
+          2,
+          0.2,
+          2.5,
+          7.5
+        ]
+      },
+      "flex": {
+        "short": [
+          1,
+          0.1,
+          1.25,
+          5
+        ],
+        "long": [
+          2,
+          0.2,
+          2.5,
+          7.5
+        ]
+      },
+      "fast": {
+        "short": [
+          4,
+          0.4,
+          5,
+          20
+        ],
+        "long": [
+          8,
+          0.8,
+          10,
+          30
+        ]
+      }
+    },
+    "gpt-5.6-sol": {
+      "standard": {
+        "short": [
+          4,
+          0.4,
+          5,
+          20
+        ],
+        "long": [
+          8,
+          0.8,
+          10,
+          30
+        ]
+      },
+      "batch": {
+        "short": [
+          2,
+          0.2,
+          2.5,
+          10
+        ],
+        "long": [
+          4,
+          0.4,
+          5,
+          15
+        ]
+      },
+      "flex": {
+        "short": [
+          2,
+          0.2,
+          2.5,
+          10
+        ],
+        "long": [
+          4,
+          0.4,
+          5,
+          15
+        ]
+      },
+      "fast": {
+        "short": [
+          8,
+          0.8,
+          10,
+          40
+        ],
+        "long": [
+          16,
+          1.6,
+          20,
+          60
+        ]
+      }
+    },
+    "gpt-5.6-terra": {
+      "standard": {
+        "short": [
+          2,
+          0.2,
+          2.5,
+          12
+        ],
+        "long": [
+          4,
+          0.4,
+          5,
+          18
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          0.1,
+          1.25,
+          6
+        ],
+        "long": [
+          2,
+          0.2,
+          2.5,
+          9
+        ]
+      },
+      "flex": {
+        "short": [
+          1,
+          0.1,
+          1.25,
+          6
+        ],
+        "long": [
+          2,
+          0.2,
+          2.5,
+          9
+        ]
+      },
+      "fast": {
+        "short": [
+          4,
+          0.4,
+          5,
+          24
+        ],
+        "long": [
+          8,
+          0.8,
+          10,
+          36
+        ]
+      }
+    },
+    "gpt-5.6-luna": {
+      "standard": {
+        "short": [
+          0.2,
+          0.02,
+          0.25,
+          1.2
+        ],
+        "long": [
+          0.4,
+          0.04,
+          0.5,
+          1.8
+        ]
+      },
+      "batch": {
+        "short": [
+          0.1,
+          0.01,
+          0.125,
+          0.6
+        ],
+        "long": [
+          0.2,
+          0.02,
+          0.25,
+          0.9
+        ]
+      },
+      "flex": {
+        "short": [
+          0.1,
+          0.01,
+          0.125,
+          0.6
+        ],
+        "long": [
+          0.2,
+          0.02,
+          0.25,
+          0.9
+        ]
+      },
+      "fast": {
+        "short": [
+          0.4,
+          0.04,
+          0.5,
+          2.4
+        ],
+        "long": [
+          0.8,
+          0.08,
+          1,
+          3.6
+        ]
+      }
+    },
+    "gpt-5.5": {
+      "standard": {
+        "short": [
+          5,
+          0.5,
+          null,
+          30
+        ],
+        "long": [
+          10,
+          1,
+          null,
+          45
+        ]
+      },
+      "batch": {
+        "short": [
+          2.5,
+          0.25,
+          null,
+          15
+        ],
+        "long": [
+          5,
+          0.5,
+          null,
+          22.5
+        ]
+      },
+      "flex": {
+        "short": [
+          2.5,
+          0.25,
+          null,
+          15
+        ],
+        "long": [
+          5,
+          0.5,
+          null,
+          22.5
+        ]
+      },
+      "fast": {
+        "short": [
+          12.5,
+          1.25,
+          null,
+          75
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.5-pro": {
+      "standard": {
+        "short": [
+          30,
+          null,
+          null,
+          180
+        ],
+        "long": [
+          60,
+          null,
+          null,
+          270
+        ]
+      },
+      "batch": {
+        "short": [
+          15,
+          null,
+          null,
+          90
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          15,
+          null,
+          null,
+          90
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.4": {
+      "standard": {
+        "short": [
+          2.5,
+          0.25,
+          null,
+          15
+        ],
+        "long": [
+          5,
+          0.5,
+          null,
+          22.5
+        ]
+      },
+      "batch": {
+        "short": [
+          1.25,
+          0.13,
+          null,
+          7.5
+        ],
+        "long": [
+          2.5,
+          0.25,
+          null,
+          11.25
+        ]
+      },
+      "flex": {
+        "short": [
+          1.25,
+          0.13,
+          null,
+          7.5
+        ],
+        "long": [
+          2.5,
+          0.25,
+          null,
+          11.25
+        ]
+      },
+      "fast": {
+        "short": [
+          5,
+          0.5,
+          null,
+          30
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.4-mini": {
+      "standard": {
+        "short": [
+          0.75,
+          0.075,
+          null,
+          4.5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.375,
+          0.0375,
+          null,
+          2.25
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.375,
+          0.0375,
+          null,
+          2.25
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          1.5,
+          0.15,
+          null,
+          9
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.4-nano": {
+      "standard": {
+        "short": [
+          0.2,
+          0.02,
+          null,
+          1.25
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.1,
+          0.01,
+          null,
+          0.625
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.1,
+          0.01,
+          null,
+          0.625
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.4-pro": {
+      "standard": {
+        "short": [
+          30,
+          null,
+          null,
+          180
+        ],
+        "long": [
+          60,
+          null,
+          null,
+          270
+        ]
+      },
+      "batch": {
+        "short": [
+          15,
+          null,
+          null,
+          90
+        ],
+        "long": [
+          30,
+          null,
+          null,
+          135
+        ]
+      },
+      "flex": {
+        "short": [
+          15,
+          null,
+          null,
+          90
+        ],
+        "long": [
+          30,
+          null,
+          null,
+          135
+        ]
+      }
+    },
+    "gpt-5.2": {
+      "standard": {
+        "short": [
+          1.75,
+          0.175,
+          null,
+          14
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.875,
+          0.0875,
+          null,
+          7
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.875,
+          0.0875,
+          null,
+          7
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          3.5,
+          0.35,
+          null,
+          28
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.2-pro": {
+      "standard": {
+        "short": [
+          21,
+          null,
+          null,
+          168
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          10.5,
+          null,
+          null,
+          84
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.1": {
+      "standard": {
+        "short": [
+          1.25,
+          0.125,
+          null,
+          10
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.625,
+          0.0625,
+          null,
+          5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.625,
+          0.0625,
+          null,
+          5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          2.5,
+          0.25,
+          null,
+          20
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5": {
+      "standard": {
+        "short": [
+          1.25,
+          0.125,
+          null,
+          10
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.625,
+          0.0625,
+          null,
+          5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.625,
+          0.0625,
+          null,
+          5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          2.5,
+          0.25,
+          null,
+          20
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5-mini": {
+      "standard": {
+        "short": [
+          0.25,
+          0.025,
+          null,
+          2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.125,
+          0.0125,
+          null,
+          1
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.125,
+          0.0125,
+          null,
+          1
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          0.45,
+          0.045,
+          null,
+          3.6
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5-nano": {
+      "standard": {
+        "short": [
+          0.05,
+          0.005,
+          null,
+          0.4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.025,
+          0.0025,
+          null,
+          0.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.025,
+          0.0025,
+          null,
+          0.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5-pro": {
+      "standard": {
+        "short": [
+          15,
+          null,
+          null,
+          120
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          7.5,
+          null,
+          null,
+          60
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4.1": {
+      "standard": {
+        "short": [
+          2,
+          0.5,
+          null,
+          8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          null,
+          null,
+          4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          3.5,
+          0.875,
+          null,
+          14
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4.1-mini": {
+      "standard": {
+        "short": [
+          0.4,
+          0.1,
+          null,
+          1.6
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.2,
+          null,
+          null,
+          0.8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          0.7,
+          0.175,
+          null,
+          2.8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4.1-nano": {
+      "standard": {
+        "short": [
+          0.1,
+          0.025,
+          null,
+          0.4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.05,
+          null,
+          null,
+          0.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          0.2,
+          0.05,
+          null,
+          0.8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4o": {
+      "standard": {
+        "short": [
+          2.5,
+          1.25,
+          null,
+          10
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          1.25,
+          null,
+          null,
+          5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          4.25,
+          2.125,
+          null,
+          17
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4o-2024-05-13": {
+      "standard": {
+        "short": [
+          5,
+          null,
+          null,
+          15
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          2.5,
+          null,
+          null,
+          7.5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          8.75,
+          null,
+          null,
+          26.25
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4o-mini": {
+      "standard": {
+        "short": [
+          0.15,
+          0.075,
+          null,
+          0.6
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.075,
+          null,
+          null,
+          0.3
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          0.25,
+          0.125,
+          null,
+          1
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o1": {
+      "standard": {
+        "short": [
+          15,
+          7.5,
+          null,
+          60
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          7.5,
+          null,
+          null,
+          30
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o1-pro": {
+      "standard": {
+        "short": [
+          150,
+          null,
+          null,
+          600
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          75,
+          null,
+          null,
+          300
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o3-pro": {
+      "standard": {
+        "short": [
+          20,
+          null,
+          null,
+          80
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          10,
+          null,
+          null,
+          40
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o3": {
+      "standard": {
+        "short": [
+          2,
+          0.5,
+          null,
+          8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          null,
+          null,
+          4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          1,
+          0.25,
+          null,
+          4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          3.5,
+          0.875,
+          null,
+          14
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o4-mini": {
+      "standard": {
+        "short": [
+          1.1,
+          0.275,
+          null,
+          4.4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.55,
+          null,
+          null,
+          2.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "flex": {
+        "short": [
+          0.55,
+          0.138,
+          null,
+          2.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          2,
+          0.5,
+          null,
+          8
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "o3-mini": {
+      "standard": {
+        "short": [
+          1.1,
+          0.55,
+          null,
+          4.4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.55,
+          null,
+          null,
+          2.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4-turbo-2024-04-09": {
+      "standard": {
+        "short": [
+          10,
+          null,
+          null,
+          30
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          5,
+          null,
+          null,
+          15
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-4-0613": {
+      "standard": {
+        "short": [
+          30,
+          null,
+          null,
+          60
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          15,
+          null,
+          null,
+          30
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-3.5-turbo": {
+      "standard": {
+        "short": [
+          0.5,
+          null,
+          null,
+          1.5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-3.5-turbo-0125": {
+      "standard": {
+        "short": [
+          0.5,
+          null,
+          null,
+          1.5
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.25,
+          null,
+          null,
+          0.75
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-3.5-turbo-1106": {
+      "standard": {
+        "short": [
+          1,
+          null,
+          null,
+          2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          null,
+          null,
+          2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-3.5-turbo-instruct": {
+      "standard": {
+        "short": [
+          1.5,
+          null,
+          null,
+          2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "davinci-002": {
+      "standard": {
+        "short": [
+          2,
+          null,
+          null,
+          2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          1,
+          null,
+          null,
+          1
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "babbage-002": {
+      "standard": {
+        "short": [
+          0.4,
+          null,
+          null,
+          0.4
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "batch": {
+        "short": [
+          0.2,
+          null,
+          null,
+          0.2
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "gpt-5.3-codex": {
+      "standard": {
+        "short": [
+          1.75,
+          0.175,
+          null,
+          14
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "fast": {
+        "short": [
+          3.5,
+          0.35,
+          null,
+          28
+        ],
+        "long": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    }
+  }
+}

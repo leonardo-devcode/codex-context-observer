@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {sortRows,relativeAge,versionState} from '../plugins/context-observer/ui-state.mjs';
+const rows=[{label:'Sem dados',tokens:null,status:'unavailable'},{label:'Zero',tokens:0,status:'estimate'},{label:'Maior',tokens:120,status:'estimate'},{label:'Menor',tokens:12,status:'estimate'}];
+assert.deepEqual(sortRows(rows).map(x=>x.label),['Maior','Menor','Zero','Sem dados']);
+assert.equal(rows[0].label,'Sem dados');
+assert.equal(relativeAge(null),'sem registro');
+assert.equal(relativeAge(1000,31000),'há 30 s');
+assert.equal(relativeAge(100000,1000),'agora');
+assert.deepEqual(versionState('0.1.3',{runningVersion:'0.2.0',installedVersion:'0.2.1'}),{mismatch:true,pending:true});
+assert.deepEqual(versionState('0.2.0',{runningVersion:'0.2.0',installedVersion:'0.2.0'}),{mismatch:false,pending:false});
+console.log('Ordenação, idades e diferenças de versão: OK.');

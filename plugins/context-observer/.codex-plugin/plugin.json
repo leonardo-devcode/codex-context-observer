@@ -1,0 +1,27 @@
+{
+  "name": "context-observer",
+  "version": "0.4.0",
+  "description": "Painel local de contexto por conversa. Leitura de métricas e estimativas, sem chamadas ao modelo.",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Contexto da conversa",
+    "shortDescription": "Contexto e custos por conversa",
+    "longDescription": "Painel local com uso da janela de contexto, estimativas por categoria, inventário de recursos, compactações e estimativas de custo da API OpenAI por modelo. Lê registros locais; sem chamadas ao modelo.",
+    "developerName": "Leonardo Silva",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/icon.svg",
+    "defaultPrompt": [
+      "Abra o painel de contexto desta conversa."
+    ]
+  },
+  "author": {
+    "name": "Leonardo Silva"
+  },
+  "homepage": "https://github.com/leonardo-devcode/codex-context-observer",
+  "repository": "https://github.com/leonardo-devcode/codex-context-observer",
+  "license": "MIT"
+}
