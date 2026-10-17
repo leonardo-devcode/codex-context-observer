@@ -38,14 +38,14 @@ def ensure_runtime(root=ROOT):
             if python.is_file() and marker.is_file():
                 return python
             if time.monotonic() >= deadline:
-                raise RuntimeError(f'Outro processo está preparando o Python. Se ele já terminou, remova somente o bloqueio vazio {lock} e tente novamente.')
+                raise RuntimeError(f'Another process is preparing Python. If it has already exited, remove only the empty lock directory {lock} and try again.')
             time.sleep(0.25)
     try:
         if python.is_file() and marker.is_file():
             return python
         if runtime.exists():
             shutil.rmtree(runtime)
-        print('Context Observer: preparando dependências Python na primeira abertura…', file=sys.stderr, flush=True)
+        print('Context Observer: preparing Python dependencies on first launch…', file=sys.stderr, flush=True)
         venv.EnvBuilder(with_pip=True).create(runtime)
         subprocess.run([str(python), '-m', 'pip', 'install', '--disable-pip-version-check', '--no-input',
                         '-r', str(requirements)], check=True, stdout=sys.stderr, stderr=sys.stderr, timeout=120)
@@ -59,7 +59,7 @@ def ensure_runtime(root=ROOT):
 
 def main():
     if sys.version_info < (3, 10):
-        raise RuntimeError('Instale Python 3.10 ou posterior e deixe python3 no PATH do Codex.')
+        raise RuntimeError('Install Python 3.10 or later and make python3 available on the Codex PATH.')
     python = ensure_runtime()
     os.execv(str(python), [str(python), str(ROOT / 'mcp_server.py')])
 
@@ -67,5 +67,5 @@ if __name__ == '__main__':
     try:
         main()
     except (OSError, RuntimeError, subprocess.SubprocessError) as error:
-        print(f'Context Observer: não foi possível iniciar: {error}', file=sys.stderr)
+        print(f'Context Observer: could not start: {error}', file=sys.stderr)
         sys.exit(1)

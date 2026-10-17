@@ -1,12 +1,12 @@
 {
   "name": "context-observer",
-  "version": "0.4.0",
-  "description": "Painel local de contexto por conversa. Leitura de métricas e estimativas, sem chamadas ao modelo.",
+  "version": "0.4.1",
+  "description": "Local context panel for each conversation. Read-only metrics and estimates, without model calls.",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "Contexto da conversa",
-    "shortDescription": "Contexto e custos por conversa",
-    "longDescription": "Painel local com uso da janela de contexto, estimativas por categoria, inventário de recursos, compactações e estimativas de custo da API OpenAI por modelo. Lê registros locais; sem chamadas ao modelo.",
+    "displayName": "Conversation context",
+    "shortDescription": "Conversation context and costs",
+    "longDescription": "Local panel showing context window usage, estimates by category, resource inventory, compactions and OpenAI API cost estimates by model. Reads local records without model calls.",
     "developerName": "Leonardo Silva",
     "category": "Developer Tools",
     "capabilities": [
@@ -15,7 +15,7 @@
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg",
     "defaultPrompt": [
-      "Abra o painel de contexto desta conversa."
+      "Open the context panel for this conversation."
     ]
   },
   "author": {

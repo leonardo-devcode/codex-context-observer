@@ -20,23 +20,23 @@ def normalized_tier(value):
     return {'default':'standard', 'priority':'fast'}.get(value, value)
 
 def charge(model, provider, usage, tier):
-    if provider != 'openai': return None, 'Provedor sem tarifa cadastrada'
+    if provider != 'openai': return None, 'No rates listed for this provider'
     card = PRICES['models'].get(model, {})
     rates = card.get(tier)
-    if not rates: return None, 'Modelo ou modalidade sem tarifa cadastrada'
+    if not rates: return None, 'No rates listed for this model or service tier'
     if not all(valid_count(usage.get(k)) for k in ('input_tokens','cached_input_tokens','output_tokens')):
-        return None, 'Contadores de tokens incompletos'
+        return None, 'Incomplete token counters'
     long = usage['input_tokens'] > PRICES['longContextAbove'] and any(
         x is not None for t in card.values() for x in t['long'])
     rates = rates['long' if long else 'short']
-    if rates[0] is None or rates[3] is None: return None, 'Tarifa de contexto longo indisponível'
+    if rates[0] is None or rates[3] is None: return None, 'Long-context pricing unavailable'
     write = usage.get('cache_write_input_tokens')
     if write is None and rates[2] is None: write = 0
-    if not valid_count(write): return None, 'Contagem de gravação de cache indisponível'
+    if not valid_count(write): return None, 'Cache-write token count unavailable'
     inp, cached, output = (usage[k] for k in ('input_tokens','cached_input_tokens','output_tokens'))
-    if cached + write > inp: return None, 'Contadores de entrada inconsistentes'
+    if cached + write > inp: return None, 'Inconsistent input counters'
     if (cached and rates[1] is None) or (write and rates[2] is None):
-        return None, 'Tarifa de cache indisponível'
+        return None, 'Cache pricing unavailable'
     counts = (inp-cached-write, cached, write, output)
     parts = [Decimal(n)*Decimal(str(rate or 0))/Decimal(1000000) for n,rate in zip(counts,rates)]
     return parts, None
@@ -80,7 +80,7 @@ class UsageLedger:
         groups={}
         for record in self.records.values():
             context=self.turns.get(record['turn_id'],{})
-            model=record.get('model') or context.get('model') or 'Modelo não identificado'
+            model=record.get('model') or context.get('model') or 'Unidentified model'
             provider=record.get('model_provider') or context.get('model_provider') or self.provider
             key=(model,provider)
             if key not in groups:

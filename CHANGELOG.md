@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1
+
+- English documentation, panel interface, plugin metadata and tool messages.
+- English number formatting and timestamps in the device time zone.
+
 ## 0.4.0
 
 - Public GitHub marketplace and portable MCP launcher.

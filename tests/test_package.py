@@ -21,7 +21,7 @@ class PackageTests(unittest.TestCase):
                                   env={**os.environ,'CODEX_HOME':str(home),'CONTEXT_OBSERVER_CODEX':str(home/'no-codex')})
             self.assertEqual(result.returncode,0,result.stderr)
             replies=[json.loads(x) for x in result.stdout.splitlines()]
-            self.assertEqual(replies[0]['result']['serverInfo']['version'],'0.4.0')
+            self.assertEqual(replies[0]['result']['serverInfo']['version'],'0.4.1')
             s=replies[1]['result']['_meta']['snapshot']
             self.assertEqual(s['threadId'],A);self.assertTrue(s['verified'])
             self.assertNotIn('PRIVATE-FIXTURE-MESSAGE',result.stdout)

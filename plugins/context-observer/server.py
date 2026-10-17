@@ -16,7 +16,7 @@ class Collector:
     def __init__(self, path, thread_id, name=None, model=None):
         self.path = Path(path)
         self.thread_id = thread_id
-        self.name = name or 'Esta conversa'
+        self.name = name or 'This conversation'
         self.model = model
         self.lock = threading.Lock()
         self.reset()
@@ -50,7 +50,7 @@ class Collector:
             return
         if kind == 'session_meta':
             if p.get('id') != self.thread_id:
-                raise ValueError('O arquivo pertence a outra conversa.')
+                raise ValueError('The file belongs to a different conversation.')
             self.verified = True
         if not self.verified:
             return
@@ -180,8 +180,8 @@ def resolve(thread_id, codex_home):
     with sqlite3.connect(dbpath.as_uri() + '?mode=ro', uri=True) as db:
         row = db.execute('SELECT rollout_path, name, model FROM threads WHERE id=?', (thread_id,)).fetchone()
     if not row:
-        raise ValueError('Conversa não encontrada no índice local.')
+        raise ValueError('Conversation not found in the local index.')
     path = Path(row[0]).resolve()
     if not path.is_relative_to(codex_home.resolve() / 'sessions'):
-        raise ValueError('Arquivo fora do diretório de sessões ativas.')
+        raise ValueError('File is outside the active sessions directory.')
     return Collector(path, thread_id, row[1], row[2])

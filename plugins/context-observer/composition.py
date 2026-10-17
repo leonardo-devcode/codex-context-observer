@@ -93,27 +93,27 @@ class Composition:
 
     def snapshot(self):
         definitions = [
-            ('messages','Mensagens · texto','Textos de usuário e assistente registrados na sessão. Exclui imagens, áudio e overhead do protocolo.'),
-            ('tool_io','Chamadas e resultados de ferramentas','Texto dos argumentos e resultados registrados. Não são os schemas das ferramentas. Inclui conteúdo de arquivos que tenha sido retornado por ferramentas.'),
-            ('base','Instruções-base registradas','Contagem do campo base_instructions.text. Pode não representar todo o system prompt efetivo.'),
-            ('developer','Instruções developer registradas','Texto de mensagens developer persistidas. Pode se sobrepor a catálogos e outras instruções mostradas separadamente.'),
-            ('skills','Catálogo de skills','Texto do catálogo da sessão: nomes, descrições e referências. Não equivale ao conteúdo completo das skills lidas.'),
-            ('mcp','Catálogo MCP · resumos','Nomes e descrições dos namespaces MCP no estado da sessão. Não inclui schemas ativos nem instruções completas dos servidores.'),
-            ('agents','Referências AGENTS.md','Somente o texto do campo agents_md, que pode conter apenas uma referência a outro arquivo. Não mede todos os arquivos de memória.'),
+            ('messages','Messages · text','User and assistant text recorded in the session. Excludes images, audio and protocol overhead.'),
+            ('tool_io','Tool calls and results','Recorded argument and result text, not tool schemas. Includes file content returned by tools.'),
+            ('base','Recorded base instructions','Count of the base_instructions.text field. May not represent the entire effective system prompt.'),
+            ('developer','Recorded developer instructions','Persisted developer message text. May overlap with catalogs and other instructions shown separately.'),
+            ('skills','Skills catalog','Session catalog text: names, descriptions and references. Does not include the full content of skills read.'),
+            ('mcp','MCP catalog · summaries','MCP namespace names and descriptions from the session state. Excludes active schemas and full server instructions.'),
+            ('agents','AGENTS.md references','Only the agents_md field text, which may just reference another file. Does not measure all memory files.'),
         ]
         rows=[]
         for key,label,note in definitions:
             value = self.counts.get(key)
             status = 'estimate' if value is not None else 'unavailable'
             if self.compacted and key in ('messages','tool_io','developer'):
-                note += ' Após compactação: conta apenas o histórico preservado legível e os registros seguintes.' if self.replacement_available else ' Conta somente novos registros após a compactação; o histórico preservado não está disponível.'
+                note += ' After compaction: counts only readable preserved history and subsequent records.' if self.replacement_available else ' Counts only new records after compaction; preserved history is unavailable.'
             reason = None
             if status == 'unavailable':
-                reason = 'Tokenizer local indisponível.' if ENCODING is None else 'Sem registro legível desta categoria após a compactação.' if self.compacted else 'Sem registro legível desta categoria.'
+                reason = 'Local tokenizer unavailable.' if ENCODING is None else 'No readable records for this category after compaction.' if self.compacted else 'No readable records for this category.'
             rows.append({'id':key,'label':label,'tokens':value if status=='estimate' else None,
                          'status':status,'note':note,'records':self.records.get(key,0),'unavailableReason':reason})
         return {'tokenizer':'o200k_base' if ENCODING else None, 'exact':False,
-                'scope':'Texto observado no registro local; não é uma decomposição exata do contexto ativo.',
+                'scope':'Text observed in the local record; not an exact breakdown of the active context.',
                 'canSum':False,'multimodalBlocksExcluded':self.multimodal,
                 'compactionInvalidated':self.compacted and not self.replacement_available,
                 'compactionSeen':self.compacted,'replacementHistoryAvailable':self.replacement_available,

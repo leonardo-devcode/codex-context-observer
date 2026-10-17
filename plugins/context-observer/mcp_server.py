@@ -67,7 +67,7 @@ class Monitor:
 
     def call(self, name, args, meta):
         if name not in ('open_context_panel','read_context_panel'):
-            raise ValueError('Ferramenta desconhecida.')
+            raise ValueError('Unknown tool.')
         thread_id = host_thread(meta)
         source = 'host' if thread_id else 'bound'
         binding = args.get('binding')
@@ -76,7 +76,7 @@ class Monitor:
                 candidate = args.get('thread_id')
                 if isinstance(candidate,str) and UUID.fullmatch(candidate): thread_id = candidate.lower()
             if not thread_id:
-                return {'content':[{'type':'text','text':'O Codex não informou a conversa nesta abertura. Abra o painel pedindo ao agente para usar open_context_panel com o ID desta conversa.'}],'isError':True,'_meta':{'bindingError':'O Codex não informou o ID da conversa. Peça nesta conversa: abra o painel de contexto.'}}
+                return {'content':[{'type':'text','text':'Codex did not provide a conversation ID when opening this panel. Ask the agent to use open_context_panel with the ID of this conversation.'}],'isError':True,'_meta':{'bindingError':'Codex did not provide a conversation ID. Ask in this conversation: open the context panel.'}}
             # Validate identity before allocating a binding.
             data = self.snapshot(thread_id)
             binding = secrets.token_urlsafe(32)
@@ -84,24 +84,24 @@ class Monitor:
             while len(self.bindings)>64: self.bindings.popitem(last=False)
         else:
             if not isinstance(binding,str) or binding not in self.bindings:
-                raise ValueError('Vínculo expirado. Feche este painel e abra um novo na conversa desejada.')
+                raise ValueError('Binding expired. Close this panel and open a new one in the intended conversation.')
             # The opening fixes identity. Later host metadata must never retarget this panel.
             thread_id = self.bindings[binding]
             source = 'opening'
             data = self.snapshot(thread_id)
         data['bindingSource'] = source
         data['binding'] = {'source':source,'mode':'fixed','focusTracking':'opening-only'}
-        return {'content':[{'type':'text','text':'Painel de contexto local aberto.'}] if name=='open_context_panel' else [],
+        return {'content':[{'type':'text','text':'Local context panel opened.'}] if name=='open_context_panel' else [],
                 '_meta':{'snapshot':data,'binding':binding},
                 'structuredContent':{'threadId':thread_id,'verified':data['verified'],'version':VERSION}}
 
 def tools_list():
     annotations={'readOnlyHint':True,'destructiveHint':False,'openWorldHint':False}
     return {'tools':[
-        {'name':'open_context_panel','title':'Contexto da conversa','description':'Abre o painel local de métricas de contexto desta conversa. O host identifica o chat automaticamente quando fornece metadados. Se necessário, passe apenas o ID exato da conversa atual, nunca o chat mais recente.',
-         'inputSchema':{'type':'object','properties':{'thread_id':{'type':'string','description':'ID exato da conversa atual, usado somente se o host não fornecer a identidade.'}},'additionalProperties':False},
+        {'name':'open_context_panel','title':'Conversation context','description':'Opens the local context metrics panel for this conversation. The host identifies the chat automatically when it provides metadata. If needed, pass only the exact current conversation ID, never the most recent chat.',
+         'inputSchema':{'type':'object','properties':{'thread_id':{'type':'string','description':'Exact current conversation ID, used only if the host does not provide it.'}},'additionalProperties':False},
          'annotations':annotations,'_meta':{'ui':{'resourceUri':URI},'openai/outputTemplate':URI,'openai/ui':{'entrypoints':[{'type':'thread'}]}}},
-        {'name':'read_context_panel','title':'Atualizar contexto','description':'Atualiza os dados da conversa fixada na abertura do painel, sem executar o modelo.',
+        {'name':'read_context_panel','title':'Refresh context','description':'Updates data for the conversation bound when the panel opened, without running the model.',
          'inputSchema':{'type':'object','properties':{'binding':{'type':'string'}},'required':['binding'],'additionalProperties':False},
          'annotations':annotations,'_meta':{'ui':{'visibility':['app']},'openai/visibility':'private'}}]}
 
@@ -110,18 +110,18 @@ def dispatch(method, params, monitor):
         return {'protocolVersion':params.get('protocolVersion','2025-06-18'),'capabilities':{'tools':{},'resources':{}},'serverInfo':{'name':'context-observer','version':VERSION}}
     if method == 'ping': return {}
     if method == 'tools/list': return tools_list()
-    if method == 'resources/list': return {'resources':[{'uri':URI,'name':'Contexto da conversa','mimeType':MIME}]}
+    if method == 'resources/list': return {'resources':[{'uri':URI,'name':'Conversation context','mimeType':MIME}]}
     if method == 'resources/templates/list': return {'resourceTemplates':[]}
     if method == 'resources/read':
-        if params.get('uri') != URI: raise ValueError('Recurso desconhecido.')
+        if params.get('uri') != URI: raise ValueError('Unknown resource.')
         return {'contents':[{'uri':URI,'mimeType':MIME,'text':(ROOT/'panel.html').read_text(),
                 '_meta':{'ui':{'csp':{'connectDomains':[],'resourceDomains':[]}},'openai/ui':{'preferredDisplayMode':'inline','availableDisplayModes':['inline','fullscreen']}}}]}
     if method == 'tools/call':
         try: return monitor.call(params.get('name'),params.get('arguments') or {},params.get('_meta'))
         except (ValueError,OSError) as err:
             # No traceback, transcript or private instructions in tool responses.
-            return {'content':[{'type':'text','text':str(err) if isinstance(err,ValueError) else 'Não foi possível ler a sessão local.'}],'isError':True}
-    raise ValueError('Método MCP não suportado.')
+            return {'content':[{'type':'text','text':str(err) if isinstance(err,ValueError) else 'Could not read the local session.'}],'isError':True}
+    raise ValueError('Unsupported MCP method.')
 
 def main():
     monitor = Monitor()
@@ -129,12 +129,12 @@ def main():
         request = None
         try:
             request = json.loads(line)
-            if not isinstance(request,dict): raise ValueError('Requisição inválida.')
+            if not isinstance(request,dict): raise ValueError('Invalid request.')
             if 'id' not in request: continue
             result = dispatch(request.get('method'),request.get('params') or {},monitor)
             reply = {'jsonrpc':'2.0','id':request['id'],'result':result}
         except Exception:
-            reply = {'jsonrpc':'2.0','id':request.get('id') if isinstance(request,dict) else None,'error':{'code':-32603,'message':'Não foi possível atender à requisição local.'}}
+            reply = {'jsonrpc':'2.0','id':request.get('id') if isinstance(request,dict) else None,'error':{'code':-32603,'message':'Could not process the local request.'}}
         print(json.dumps(reply,ensure_ascii=False),flush=True)
 
 if __name__ == '__main__': main()

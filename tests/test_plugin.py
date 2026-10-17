@@ -43,13 +43,13 @@ class PluginTests(unittest.TestCase):
         r=dispatch('resources/read',{'uri':URI},self.monitor())
         html=r['contents'][0]['text']
         self.assertNotIn('src="/app.js"',html)
-        self.assertTrue('__PLUGIN_SCRIPT__' not in html,'O HTML ainda contém um marcador de compilação.')
+        self.assertTrue('__PLUGIN_SCRIPT__' not in html,'The HTML still contains a build placeholder.')
         self.assertIn('read_context_panel',html)
 
     def test_expired_binding_cannot_retarget_to_current_host(self):
         m=self.monitor()
         for meta in ({'threadId':B},{}):
-            with self.assertRaisesRegex(ValueError,'Vínculo expirado'):
+            with self.assertRaisesRegex(ValueError,'Binding expired'):
                 m.call('read_context_panel',{'binding':'expired'},meta)
         self.assertEqual(len(m.bindings),0)
 

@@ -15,23 +15,23 @@ async function call(name,args) {
   try {
     const result=await Promise.race([
       app.callServerTool({name,arguments:args}),
-      new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('O Codex não respondeu em 12 segundos. Tente atualizar novamente.')),12000);})
+      new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error('Codex did not respond within 12 seconds. Try refreshing again.')),12000);})
     ]);
-    if(result.isError) throw new Error(result.content?.find(x=>x.type==='text')?.text||'Falha na coleta local.');
+    if(result.isError) throw new Error(result.content?.find(x=>x.type==='text')?.text||'Local collection failed.');
     return result;
   } finally {clearTimeout(timer);}
 }
 app.ontoolresult=accept;
 window.readContextSnapshot = async () => {
   if(bindingError) throw new Error(bindingError);
-  if(!binding) throw new Error('Aguardando o Codex vincular este painel à conversa.');
+  if(!binding) throw new Error('Waiting for Codex to bind this panel to the conversation.');
   if(initial) {const value=initial; initial=null; return value;}
   const result=await call('read_context_panel',{binding});
-  if(!result._meta?.snapshot) throw new Error('O host não entregou os dados do painel.');
-  if(result._meta.snapshot.threadId!==fixedThread) throw new Error('A atualização trouxe outra conversa. O painel manteve os dados da conversa original.');
+  if(!result._meta?.snapshot) throw new Error('The host did not return panel data.');
+  if(result._meta.snapshot.threadId!==fixedThread) throw new Error('The update returned a different conversation. The panel kept the original conversation data.');
   return result._meta.snapshot;
 };
 app.connect().catch(error=>{
-  bindingError='O painel precisa ser aberto como MCP App no Codex: '+error.message;
+  bindingError='This panel must be opened as an MCP App in Codex: '+error.message;
   window.dispatchEvent(new Event('context-ready'));
 });
